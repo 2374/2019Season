@@ -2,10 +2,24 @@ package frc.robot;
 
 public class RobotMap {
 	
-	public static final int CONTROLLER = 0;
-	public static final double SPEED_ELEVATOR = 0.60;
+	public static final int CONTROLLER_DRIVER = 0;
+	public static final int CONTROLLER_OPERATOR = 1;
+	public static final double SPEED_ELEVATOR = 1.0;
 	public static final double SPEED_INTAKE = 0.60;
-	
+	public static final int STOP_DISTANCE = 100;
+	public static final double ELEVATOR_BRAKE = 0.15;
+	public static final int ELEVATOR_ZERO_LIMIT = 300;
+	public static final int TIPPING_LIMIT = 15;
+
+	public static final int ELEVATOR_HATCH_1 = 7783;
+	public static final int ELEVATOR_HATCH_1_PICKUP = 6852;
+	public static final int ELEVATOR_HATCH_2 = 22176;
+	public static final int ELEVATOR_HATCH_2_PICKUP = 10000;
+	public static final int ELEVATOR_HATCH_3 = 32801;
+	public static final int ELEVATOR_BALL_1 = 10482;
+	public static final int ELEVATOR_BALL_2 = 23311;
+	public static final int ELEVATOR_BALL_3 = 10000;
+
 	public static final int VICTOR_INTAKE_LEFT = 7;
 	public static final int VICTOR_INTAKE_RIGHT = 8;
 	public static final int TALON_DRIVE_FRONT_LEFT = 1;
@@ -29,5 +43,7 @@ public class RobotMap {
 	public static final int CONTROLLER_BUTTON_Y = 4;
 	public static final int CONTROLLER_BUTTON_BACK = 7;
 	public static final int CONTROLLER_BUTTON_START = 8;
+	public static final int CONTROLLER_BUTTON_M1 = 9;
+	public static final int CONTROLLER_BUTTON_M2 = 10;
 	
 }

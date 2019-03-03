@@ -12,34 +12,26 @@ public class ElevatorTeleop extends Command {
 	}
 	
 	@Override
-	public void initialize() {
-		
-	}
-	
-	@Override
 	protected void execute() {
+		//System.out.println("Ticks: " + Robot.getElevator().getTicks());
 		if (Robot.getInput().getLeftTrigger() > 0.0) {
-			Robot.getElevator().move(RobotMap.SPEED_ELEVATOR, 1);
+			if (Robot.getElevator().getTicks() > RobotMap.ELEVATOR_ZERO_LIMIT) {
+				Robot.getElevator().move(RobotMap.SPEED_ELEVATOR / 4.0, -1);
+			} else {
+				Robot.getElevator().move(0.0, 1);
+			}
 		} else if (Robot.getInput().getRightTrigger() > 0.0) {
-			Robot.getElevator().move(RobotMap.SPEED_ELEVATOR, -1);
+			Robot.getElevator().move(RobotMap.SPEED_ELEVATOR, 1);
 		} else {
-			Robot.getElevator().move(0.0, 0);
+			Robot.getElevator().move(RobotMap.ELEVATOR_BRAKE, 1);
+			// Robot.getElevator().move(0.0, 0);
 		}
-	}
-	
-	@Override
-	protected void interrupted() {
-		end();
+
 	}
 	
 	@Override
 	protected boolean isFinished() {
 		return false;
-	}
-	
-	@Override
-	protected void end() {
-		Robot.getElevator().move(0.0, 0);
 	}
 	
 }

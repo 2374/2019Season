@@ -12,11 +12,6 @@ public class IntakeTeleop extends Command {
 	}
 	
 	@Override
-	public void initialize() {
-		
-	}
-	
-	@Override
 	protected void execute() {
 		if (Robot.getInput().getLeftBumper()) {
 			Robot.getIntake().move(RobotMap.SPEED_INTAKE, -1);
@@ -28,18 +23,8 @@ public class IntakeTeleop extends Command {
 	}
 	
 	@Override
-	protected void interrupted() {
-		end();
-	}
-	
-	@Override
 	protected boolean isFinished() {
 		return false;	
-	}
-	
-	@Override
-	protected void end() {
-		Robot.getIntake().move(0.0, 0);
 	}
 	
 }

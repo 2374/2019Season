@@ -1,12 +1,16 @@
 package frc.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import frc.robot.commands.ElevatorStabalizer;
+import frc.robot.commands.KeypadTeleop;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Intake;
@@ -24,6 +28,7 @@ public class Robot extends TimedRobot {
 	private static Elevator elevator;
 	private static Pixy pixy;
 	private static LidarLite lidar;
+	private static AHRS navX;
 
 	@Override
 	public void robotInit() {
@@ -33,15 +38,20 @@ public class Robot extends TimedRobot {
 		elevator = new Elevator();
 		pixy = new Pixy(new I2C(I2C.Port.kOnboard, 0x54), 0.02, null);
 		lidar = new LidarLite(new I2C(I2C.Port.kOnboard, 0x62), 0.02, null, null, HWVERSION.V2);
-		
+		navX = new AHRS(SPI.Port.kMXP);
+
 		pixy.setPIDType(PIDType.ANGLE);
 		pixy.setSortBy(FrameOrder.AREA);
 		pixy.setSortAscending(false);
 		pixy.setMaxObjects(2);
 		
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("First", 0);
 		camera.setResolution(160, 120);
 		camera.setBrightness(40);
+
+		UsbCamera secondCamera = CameraServer.getInstance().startAutomaticCapture("Second", 1);
+		secondCamera.setResolution(160, 120);
+		secondCamera.setBrightness(40);
 	}
 	
 	@Override
@@ -62,14 +72,18 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
+
+		//Robot.getElevator().antiTip();
+
+		//System.out.println("Pitch: " + getNavX().getPitch() + " Roll: " + getNavX().getRoll());
+
 		SmartDashboard.putNumber("Pixy Objects Detected", pixy.getNumObjectsDetected());
 		SmartDashboard.putNumber("Pixy Degree Offset", pixy.getOffset(1));
 	}
 	
 	@Override
 	public void testPeriodic() {
-		//new Keypad();
+		
 	}
 	
 	@Override
@@ -93,5 +107,7 @@ public class Robot extends TimedRobot {
 	public static Pixy getPixy() { return pixy; }
 	
 	public static LidarLite getLidar() { return lidar; }
+
+	public static AHRS getNavX() { return navX; }
 	
 }
