@@ -91,7 +91,7 @@ public class LidarLite  implements PIDSource {
     /**
      * External interface for the scheduled polling data
      */
-    private double m_distance = 0;
+    private double m_distance = 0.0;
     private boolean m_data_valid = false;
     private double m_data_timestamp = 0;
     

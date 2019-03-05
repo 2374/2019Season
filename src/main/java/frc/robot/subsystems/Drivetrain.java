@@ -38,6 +38,8 @@ public class Drivetrain extends Subsystem {
 
 		frontLeft.setNeutralMode(NeutralMode.Brake);
 		frontRight.setNeutralMode(NeutralMode.Brake);
+
+		frontLeft.setSelectedSensorPosition(0);
 	}
 	
 	@Override
@@ -70,16 +72,10 @@ public class Drivetrain extends Subsystem {
 		double progress = horizontalInitial - horizontal;
 		System.out.println("H: " + horizontalInitial + " V: " + verticalInitial + ", D: " + (Math.pow(horizontalInitial, 2) * Math.sqrt(1 - Math.pow(progress, 2) / Math.pow(horizontalInitial, 2))) + " A: " + angle);
 		current = Math.atan(progress * verticalInitial / (Math.pow(horizontalInitial, 2) * Math.sqrt(1 - Math.pow(progress, 2) / Math.pow(horizontalInitial, 2)))) - current;
-		current = convertToDegrees(current);
+		current = Math.toDegrees(current);
 		System.out.println("progress: " + progress + " current: " + current);
-		//if (current < 0) current -= 5;
-		//else current += 5;
 
 		return current;
-	}
-
-	public double convertToDegrees(double amount) {
-		return amount * (180 / Math.PI);
 	}
 	
 }

@@ -25,7 +25,7 @@ public class Intake extends Subsystem {
 	
 	public void move(double speed, int direction) {
 		intakeLeft.set(ControlMode.PercentOutput, speed * direction);
-		intakeRight.set(ControlMode.PercentOutput, speed * direction * 1);
+		intakeRight.set(ControlMode.PercentOutput, speed * direction);
 	}
 	
 }

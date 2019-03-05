@@ -4,13 +4,10 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.ElevatorTeleop;
 
-import com.ctre.phoenix.ErrorCode;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Elevator extends Subsystem {
@@ -22,20 +19,11 @@ public class Elevator extends Subsystem {
 		this.elevatorFront = new TalonSRX(RobotMap.TALON_ELEVATOR_FRONT);
 		this.elevatorBack = new TalonSRX(RobotMap.TALON_ELEVATOR_BACK);
 
+		elevatorBack.follow(elevatorFront);
+
 		elevatorFront.setNeutralMode(NeutralMode.Brake);
 		elevatorBack.setNeutralMode(NeutralMode.Brake);
 
-		elevatorBack.follow(elevatorFront);
-
-		// Encoder stuff
-
-		ErrorCode sensorPresent = elevatorFront.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 1, 100);
-
-		if (sensorPresent != ErrorCode.OK) {
-			DriverStation.reportError("Could Not Detect Encoder", false);
-		}
-
-		System.out.println("Start Ticks: " + elevatorFront.getSelectedSensorPosition(0));
 		elevatorFront.setSelectedSensorPosition(0);
 	}
 	

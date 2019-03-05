@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.ElevatorStabalizer;
 import frc.robot.commands.KeypadTeleop;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
@@ -72,13 +70,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		new KeypadTeleop().start();
 
 		//Robot.getElevator().antiTip();
-
-		//System.out.println("Pitch: " + getNavX().getPitch() + " Roll: " + getNavX().getRoll());
-
-		SmartDashboard.putNumber("Pixy Objects Detected", pixy.getNumObjectsDetected());
-		SmartDashboard.putNumber("Pixy Degree Offset", pixy.getOffset(1));
 	}
 	
 	@Override

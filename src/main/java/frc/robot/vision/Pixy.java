@@ -563,7 +563,7 @@ public class Pixy implements AdvancedPIDSource {
         		
         	} else {
         		
-        		return -1.0;
+        		return -0.0;
         		
         	}
     		

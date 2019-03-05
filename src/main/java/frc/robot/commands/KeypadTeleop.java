@@ -6,17 +6,18 @@ import frc.robot.RobotMap;
 
 public class KeypadTeleop extends Command {
 
-    public KeypadTeleop() {
-		requires (Robot.getElevator());
-	}
+		public KeypadTeleop() {
+			requires (Robot.getElevator());
+		}
 	
 	@Override
 	protected void execute() {
-        
-        System.out.println("Test");
 
-        if (Robot.getInput().getOperatorButtonA()) {
+	System.out.println("Executing");
+
+    if (Robot.getInput().getOperatorButtonA()) {
 			System.out.println("1: Rocket Level 1 Hatch");
+			// make reference to automagic?
 			Robot.getElevator().move(RobotMap.ELEVATOR_HATCH_1);
 		} else if (Robot.getInput().getOperatorButtonB()) {
 			System.out.println("2: Rocket Level 2 Hatch");
