@@ -4,7 +4,7 @@ public class RobotMap {
 	
 	public static final int CONTROLLER_DRIVER = 0;
 	public static final int CONTROLLER_OPERATOR = 1;
-	public static final double SPEED_ELEVATOR = 1.0;
+	public static final double SPEED_ELEVATOR = 0.80;
 	public static final double SPEED_INTAKE = 0.60;
 	public static final int STOP_DISTANCE = 100;
 	public static final double ELEVATOR_BRAKE = 0.15;
@@ -13,11 +13,11 @@ public class RobotMap {
 
 	public static final int ELEVATOR_HATCH_1 = 7783;
 	public static final int ELEVATOR_HATCH_1_PICKUP = 6852;
-	public static final int ELEVATOR_HATCH_2 = 22176;
+	public static final int ELEVATOR_HATCH_2 = 10000;
 	public static final int ELEVATOR_HATCH_2_PICKUP = 10000;
 	public static final int ELEVATOR_HATCH_3 = 32801;
-	public static final int ELEVATOR_BALL_1 = 10482;
-	public static final int ELEVATOR_BALL_2 = 23311;
+	public static final int ELEVATOR_BALL_1 = 10000;
+	public static final int ELEVATOR_BALL_2 = 23211;
 	public static final int ELEVATOR_BALL_3 = 10000;
 
 	public static final int VICTOR_INTAKE_LEFT = 7;

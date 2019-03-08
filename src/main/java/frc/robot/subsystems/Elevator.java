@@ -1,6 +1,5 @@
 package frc.robot.subsystems;
 
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.ElevatorTeleop;
 
@@ -41,26 +40,15 @@ public class Elevator extends Subsystem {
 			while (getTicks() < destination) {
 				move(RobotMap.SPEED_ELEVATOR, 1);
 			}
+			move(RobotMap.ELEVATOR_BRAKE, 1);
 		} else {
-			while (getTicks() > destination) {
-				move(RobotMap.SPEED_ELEVATOR / 4.0, -1);
+			if (getTicks() > RobotMap.ELEVATOR_ZERO_LIMIT) {
+				while (getTicks() > destination && getTicks() > RobotMap.ELEVATOR_ZERO_LIMIT) {
+					move(RobotMap.SPEED_ELEVATOR / 4.0, -1);
+				}
+				move(RobotMap.ELEVATOR_BRAKE, 1);
 			}
 		}
-	}
-
-	public void emergencyDrop() {
-		while (getTicks() > 0) {
-			move(0.80, -1);
-		}
-	}
-
-	public void antiTip() {
-
-		if (Robot.getNavX().getRoll() > RobotMap.TIPPING_LIMIT || Robot.getNavX().getPitch() > RobotMap.TIPPING_LIMIT) {
-			Robot.getDrivetrain().tankDrive(0.0, 0.0);
-			Robot.getElevator().emergencyDrop();
-        }
-
 	}
 
 	public int getTicks() { return elevatorFront.getSelectedSensorPosition(); }

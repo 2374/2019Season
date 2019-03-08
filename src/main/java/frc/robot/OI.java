@@ -43,7 +43,7 @@ public class OI {
 	public boolean getButtonM1() { return driver.getRawButton(RobotMap.CONTROLLER_BUTTON_M1); }
 
 	public boolean getButtonM2() { return driver.getRawButton(RobotMap.CONTROLLER_BUTTON_M2); }
-
+	
 	public XboxController getDriverController() { return driver; }
 
 	public double getOperatorJoystickLeftX() { return deadZone(operator.getRawAxis(RobotMap.CONTROLLER_LEFT_AXIS_X), 0.3); }
@@ -79,7 +79,7 @@ public class OI {
 	public boolean getOperatorButtonM2() { return operator.getRawButton(RobotMap.CONTROLLER_BUTTON_M2); }
 
 	public XboxController getOperatorController() { return operator; }
-	
+
 	public static double deadZone(double axisValue, double deadValue) {
 		if (Math.abs(axisValue) < deadValue) {
 			return 0.0;

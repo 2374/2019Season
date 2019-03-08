@@ -25,6 +25,7 @@ public class DrivetrainTeleop extends Command {
 	
 	@Override
 	protected void execute() {
+
 		if (Robot.getInput().getButtonB()) {
 				aligned = false;
 				moved = false;
@@ -104,10 +105,11 @@ public class DrivetrainTeleop extends Command {
 			// }
 
 		} else {
-			Robot.getDrivetrain().arcadeDrive(Robot.getInput().getJoystickLeftY(), Robot.getInput().getJoystickLeftX());
+			Robot.getDrivetrain().tankDrive(Robot.getInput().getJoystickLeftY(), Robot.getInput().getJoystickRightY());
+			//Robot.getDrivetrain().arcadeDrive(Robot.getInput().getJoystickLeftY(), Robot.getInput().getJoystickLeftX());
 		}
- 
-		//if (Robot.getInput().getButtonB()) System.out.println("Record ticks: " + Robot.getElevator().getTicks());
+
+		if (Robot.getInput().getButtonB()) System.out.println("Record ticks: " + Robot.getElevator().getTicks());
 		if (Robot.getInput().getButtonX()) Robot.getElevator().move(RobotMap.ELEVATOR_HATCH_1_PICKUP);
 		if (Robot.getInput().getButtonY()) Robot.getElevator().move(RobotMap.ELEVATOR_HATCH_2);
 		if (Robot.getInput().getButtonStart()) Robot.getElevator().move(RobotMap.ELEVATOR_HATCH_1);

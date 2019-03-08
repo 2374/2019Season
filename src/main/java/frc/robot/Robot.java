@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.commands.ElevatorStabalizer;
 import frc.robot.commands.KeypadTeleop;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
@@ -27,6 +28,9 @@ public class Robot extends TimedRobot {
 	private static Pixy pixy;
 	private static LidarLite lidar;
 	private static AHRS navX;
+
+	private KeypadTeleop keypadTeleop;
+	private ElevatorStabalizer stabilizer;
 
 	@Override
 	public void robotInit() {
@@ -50,6 +54,9 @@ public class Robot extends TimedRobot {
 		UsbCamera secondCamera = CameraServer.getInstance().startAutomaticCapture("Second", 1);
 		secondCamera.setResolution(160, 120);
 		secondCamera.setBrightness(40);
+
+		keypadTeleop = new KeypadTeleop();
+		stabilizer = new ElevatorStabalizer();
 	}
 	
 	@Override
@@ -71,9 +78,8 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		new KeypadTeleop().start();
-
-		//Robot.getElevator().antiTip();
+		// keypadTeleop.start();
+		// stabilizer.start();
 	}
 	
 	@Override

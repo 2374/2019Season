@@ -10,7 +10,7 @@ public class ElevatorTeleop extends Command {
 	public ElevatorTeleop() {
 		requires (Robot.getElevator());
 	}
-	
+
 	@Override
 	protected void execute() {
 		if (Robot.getInput().getLeftTrigger() > 0.0) {
