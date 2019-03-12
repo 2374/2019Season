@@ -11,9 +11,10 @@ public class RobotMap {
 	public static final int ELEVATOR_ZERO_LIMIT = 300;
 	public static final int TIPPING_LIMIT = 15;
 
-	public static final int ELEVATOR_HATCH_1 = 7783;
-	public static final int ELEVATOR_HATCH_1_PICKUP = 6852;
-	public static final int ELEVATOR_HATCH_2 = 10000;
+	public static final int ELEVATOR_HATCH_1 = 6402;
+	public static final int ELEVATOR_HATCH_1_PICKUP = 4469;
+	public static final int ELEVATOR_HATCH_1_DEPLOY = 6552;
+	public static final int ELEVATOR_HATCH_2 = 20086;
 	public static final int ELEVATOR_HATCH_2_PICKUP = 10000;
 	public static final int ELEVATOR_HATCH_3 = 32801;
 	public static final int ELEVATOR_BALL_1 = 10000;

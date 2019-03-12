@@ -1,15 +1,54 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.KeypadTeleop;
 
 public class OI {
-	
+
 	private XboxController driver;
 	private XboxController operator;
+
+	private JoystickButton button1;
+	private JoystickButton button2;
+	private JoystickButton button3;
+	private JoystickButton button4;
+	private JoystickButton button5;
+	private JoystickButton button6;
+	private JoystickButton button7;
+	private JoystickButton button8;
+	private JoystickButton button9;
+	private JoystickButton button10;
+	private JoystickButton button11;
 	
 	public OI() {
 		driver = new XboxController(RobotMap.CONTROLLER_DRIVER);
 		operator = new XboxController(RobotMap.CONTROLLER_OPERATOR);
+
+		this.button1 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_A);
+		this.button2 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_B);
+		this.button3 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_X);
+		this.button4 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_Y);
+		this.button5 = new JoystickButton(operator, RobotMap.CONTROLLER_LEFT_BUMPER);
+		this.button6 = new JoystickButton(operator, RobotMap.CONTROLLER_RIGHT_BUMPER);
+		this.button7 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_BACK);
+		this.button8 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_START);
+		this.button9 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M1);
+		this.button10 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M2);
+		this.button11 = new JoystickButton(operator, 11);
+
+		button1.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1));
+		button2.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_2));
+		button3.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_3));
+		button4.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_Y));
+		button5.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_1));
+		button6.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_2));
+		button7.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_3));
+		button8.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_START));
+		button9.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_M1));
+		button10.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_PICKUP));
+		button11.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_DEPLOY));
+
 	}
 	
 	public double getJoystickLeftX() { return deadZone(driver.getRawAxis(RobotMap.CONTROLLER_LEFT_AXIS_X), 0.3); }

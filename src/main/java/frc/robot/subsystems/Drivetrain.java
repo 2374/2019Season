@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import frc.robot.RobotMap;
 import frc.robot.commands.DrivetrainTeleop;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -24,12 +23,6 @@ public class Drivetrain extends Subsystem {
 		backLeft.follow(frontLeft);
 		backRight.follow(frontRight);
 
-		frontLeft.setInverted(false);
-		frontRight.setInverted(false);
-
-		frontLeft.setNeutralMode(NeutralMode.Brake);
-		frontRight.setNeutralMode(NeutralMode.Brake);
-
 		frontLeft.setSelectedSensorPosition(0);
 	}
 	
@@ -43,12 +36,20 @@ public class Drivetrain extends Subsystem {
 		frontRight.set(ControlMode.PercentOutput, rightValue);
 	}
 
+	// public void arcadeDrive(double throttleValue, double turnValue) {
+	// 	double leftMotor = -throttleValue + turnValue;
+	// 	double rightMotor = -throttleValue - turnValue;
+
+	// 	frontLeft.set(ControlMode.PercentOutput, leftMotor);
+	// 	frontRight.set(ControlMode.PercentOutput, -rightMotor);
+	// }
+
 	public void arcadeDrive(double throttleValue, double turnValue) {
 		double leftMotor = -throttleValue + turnValue;
 		double rightMotor = -throttleValue - turnValue;
 
-		frontLeft.set(ControlMode.PercentOutput, (leftMotor / 2.0));
-		frontRight.set(ControlMode.PercentOutput, -(rightMotor / 2.0));
+		frontLeft.set(ControlMode.PercentOutput, leftMotor);
+		frontRight.set(ControlMode.PercentOutput, -rightMotor);
 	}
 	
 }

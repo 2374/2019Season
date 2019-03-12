@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.commands.ElevatorStabalizer;
-import frc.robot.commands.KeypadTeleop;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Intake;
@@ -20,7 +18,7 @@ import frc.robot.vision.Pixy;
 import frc.robot.vision.Pixy.FrameOrder;
 
 public class Robot extends TimedRobot {
-	
+
 	private static OI oi;
 	private static Drivetrain drivetrain;
 	private static Intake intake;
@@ -29,15 +27,12 @@ public class Robot extends TimedRobot {
 	private static LidarLite lidar;
 	private static AHRS navX;
 
-	private KeypadTeleop keypadTeleop;
-	private ElevatorStabalizer stabilizer;
-
 	@Override
 	public void robotInit() {
+		elevator = new Elevator();
 		oi = new OI();
 		drivetrain = new Drivetrain();
 		intake = new Intake();
-		elevator = new Elevator();
 		pixy = new Pixy(new I2C(I2C.Port.kOnboard, 0x54), 0.02, null);
 		lidar = new LidarLite(new I2C(I2C.Port.kOnboard, 0x62), 0.02, null, null, HWVERSION.V2);
 		navX = new AHRS(SPI.Port.kMXP);
@@ -54,9 +49,6 @@ public class Robot extends TimedRobot {
 		UsbCamera secondCamera = CameraServer.getInstance().startAutomaticCapture("Second", 1);
 		secondCamera.setResolution(160, 120);
 		secondCamera.setBrightness(40);
-
-		keypadTeleop = new KeypadTeleop();
-		stabilizer = new ElevatorStabalizer();
 	}
 	
 	@Override
@@ -66,30 +58,27 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousPeriodic() {
-		
+		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopInit() {
-		
+		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
-		// keypadTeleop.start();
-		// stabilizer.start();
 	}
 	
 	@Override
 	public void testPeriodic() {
-		
+		Scheduler.getInstance().run();
 	}
 	
 	@Override
 	public void disabledInit() {
-		
+		Scheduler.getInstance().run();
 	}
 	
 	@Override
