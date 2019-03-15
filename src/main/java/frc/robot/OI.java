@@ -40,12 +40,12 @@ public class OI {
 		button1.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1));
 		button2.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_2));
 		button3.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_3));
-		button4.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_Y));
-		button5.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_1));
-		button6.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_2));
-		button7.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_3));
+		button4.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_1));
+		button5.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_2));
+		button6.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_3));
+		button7.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_CARGO_BALL));
 		button8.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_START));
-		button9.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_M1));
+		button9.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_ZERO_LIMIT));
 		button10.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_PICKUP));
 		button11.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_DEPLOY));
 

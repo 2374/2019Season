@@ -14,9 +14,9 @@ public class IntakeTeleop extends Command {
 	@Override
 	protected void execute() {
 		if (Robot.getInput().getLeftBumper()) {
-			Robot.getIntake().move(RobotMap.SPEED_INTAKE, -1);
-		} else if (Robot.getInput().getRightBumper()) {
 			Robot.getIntake().move(RobotMap.SPEED_INTAKE, 1);
+		} else if (Robot.getInput().getRightBumper()) {
+			Robot.getIntake().move(RobotMap.SPEED_INTAKE, -1);
 		} else {
 			Robot.getIntake().move(0.0, 1);
 		}

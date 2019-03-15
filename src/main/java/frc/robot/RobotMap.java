@@ -20,13 +20,14 @@ public class RobotMap {
 	public static final int ELEVATOR_BALL_1 = 10000;
 	public static final int ELEVATOR_BALL_2 = 23211;
 	public static final int ELEVATOR_BALL_3 = 10000;
+	public static final int ELEVATOR_CARGO_BALL = 1000;
 
-	public static final int VICTOR_INTAKE_LEFT = 7;
-	public static final int VICTOR_INTAKE_RIGHT = 8;
-	public static final int TALON_DRIVE_FRONT_LEFT = 1;
-	public static final int TALON_DRIVE_FRONT_RIGHT = 3;
-	public static final int TALON_DRIVE_BACK_LEFT = 2;
-	public static final int TALON_DRIVE_BACK_RIGHT = 4;
+	public static final int VICTOR_INTAKE_LEFT = 8;
+	public static final int VICTOR_INTAKE_RIGHT = 7;
+	public static final int TALON_DRIVE_FRONT_LEFT = 3;
+	public static final int TALON_DRIVE_FRONT_RIGHT = 1;
+	public static final int TALON_DRIVE_BACK_LEFT = 4;
+	public static final int TALON_DRIVE_BACK_RIGHT = 2;
 	public static final int TALON_ELEVATOR_FRONT = 5;
 	public static final int TALON_ELEVATOR_BACK = 6;
 	
