@@ -19,9 +19,7 @@ public class KeypadTeleop extends Command {
 
 		Robot.getElevator().move(destination);
 		finished = true;
-
-		//System.out.println("Going");
-
+		
     	// if (Robot.getInput().getOperatorButtonA()) {
 		// 	System.out.println("1: Rocket Level 1 Hatch");
 		// 	Robot.getElevator().move(RobotMap.ELEVATOR_HATCH_1);

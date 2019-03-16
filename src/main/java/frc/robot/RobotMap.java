@@ -4,18 +4,22 @@ public class RobotMap {
 	
 	public static final int CONTROLLER_DRIVER = 0;
 	public static final int CONTROLLER_OPERATOR = 1;
+	public static final double SPEED_DRIVE = 0.3;
 	public static final double SPEED_ELEVATOR = 0.80;
 	public static final double SPEED_INTAKE = 0.60;
 	public static final int STOP_DISTANCE = 100;
+	public static final int STOP_PLAYERSTATION_DISTANCE = 50;
+	public static final int STOP_IDEAL_STOP_DISTANCE = 200;
 	public static final double ELEVATOR_BRAKE = 0.15;
 	public static final int ELEVATOR_ZERO_LIMIT = 300;
 	public static final int TIPPING_LIMIT = 7;
+	public static final int DEPLOY_DISTANCE = 300;
+	public static final int DEPLOY_OFFSET = 1000;
 
 	public static final int ELEVATOR_HATCH_1 = 6130;
 	public static final int ELEVATOR_HATCH_1_PICKUP = 4469;
 	public static final int ELEVATOR_HATCH_1_DEPLOY = 6452;
 	public static final int ELEVATOR_HATCH_2 = 19624;
-	public static final int ELEVATOR_HATCH_2_PICKUP = 10000;
 	public static final int ELEVATOR_HATCH_3 = 33113;
 	public static final int ELEVATOR_BALL_1 = 9383;
 	public static final int ELEVATOR_BALL_2 = 22638;

@@ -42,13 +42,13 @@ public class Robot extends TimedRobot {
 		pixy.setSortAscending(false);
 		pixy.setMaxObjects(2);
 		
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("First", 0);
-		camera.setResolution(160, 120);
-		camera.setBrightness(40);
+		UsbCamera leftCamera = CameraServer.getInstance().startAutomaticCapture("Left Camera", 0);
+		leftCamera.setResolution(160, 120);
+		leftCamera.setBrightness(40);
 
-		UsbCamera secondCamera = CameraServer.getInstance().startAutomaticCapture("Second", 1);
-		secondCamera.setResolution(160, 120);
-		secondCamera.setBrightness(40);
+		UsbCamera rightCamera = CameraServer.getInstance().startAutomaticCapture("Second Camera", 1);
+		rightCamera.setResolution(160, 120);
+		rightCamera.setBrightness(40);
 	}
 	
 	@Override

@@ -22,8 +22,6 @@ public class Drivetrain extends Subsystem {
 
 		backLeft.follow(frontLeft);
 		backRight.follow(frontRight);
-
-		frontLeft.setSelectedSensorPosition(0);
 	}
 	
 	@Override
@@ -43,5 +41,5 @@ public class Drivetrain extends Subsystem {
 		frontLeft.set(ControlMode.PercentOutput, leftMotor);
 		frontRight.set(ControlMode.PercentOutput, -rightMotor);
 	}
-	
+
 }

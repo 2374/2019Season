@@ -2,15 +2,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.AutoAlign;
 import frc.robot.commands.KeypadTeleop;
 
 public class OI {
 
 	private XboxController driver;
 	private XboxController operator;
-
-	private JoystickButton autoAlign;
 
 	private JoystickButton button1;
 	private JoystickButton button2;
@@ -27,8 +24,6 @@ public class OI {
 		driver = new XboxController(RobotMap.CONTROLLER_DRIVER);
 		operator = new XboxController(RobotMap.CONTROLLER_OPERATOR);
 
-		this.autoAlign = new JoystickButton(driver, RobotMap.CONTROLLER_BUTTON_Y);
-
 		this.button1 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_A);
 		this.button2 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_B);
 		this.button3 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_X);
@@ -39,8 +34,6 @@ public class OI {
 		this.button8 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_START);
 		this.button9 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M1);
 		this.button10 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M2);
-
-		autoAlign.whileHeld(new AutoAlign());
 
 		button1.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1));
 		button2.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_2));

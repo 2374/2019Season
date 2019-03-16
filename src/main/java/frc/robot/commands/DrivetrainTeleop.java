@@ -29,7 +29,7 @@ public class DrivetrainTeleop extends Command {
 		if (Robot.getInput().getButtonB()) {
 				aligned = false;
 				moved = false;
-				squared = false;	
+				squared = false;
 		}
 
 		if (Robot.getInput().getButtonA()) {
