@@ -9,18 +9,19 @@ public class RobotMap {
 	public static final int STOP_DISTANCE = 100;
 	public static final double ELEVATOR_BRAKE = 0.15;
 	public static final int ELEVATOR_ZERO_LIMIT = 300;
-	public static final int TIPPING_LIMIT = 15;
+	public static final int TIPPING_LIMIT = 7;
 
-	public static final int ELEVATOR_HATCH_1 = 6402;
+	public static final int ELEVATOR_HATCH_1 = 6130;
 	public static final int ELEVATOR_HATCH_1_PICKUP = 4469;
-	public static final int ELEVATOR_HATCH_1_DEPLOY = 6552;
-	public static final int ELEVATOR_HATCH_2 = 20086;
+	public static final int ELEVATOR_HATCH_1_DEPLOY = 6452;
+	public static final int ELEVATOR_HATCH_2 = 19624;
 	public static final int ELEVATOR_HATCH_2_PICKUP = 10000;
-	public static final int ELEVATOR_HATCH_3 = 32801;
-	public static final int ELEVATOR_BALL_1 = 10000;
-	public static final int ELEVATOR_BALL_2 = 23211;
-	public static final int ELEVATOR_BALL_3 = 10000;
-	public static final int ELEVATOR_CARGO_BALL = 1000;
+	public static final int ELEVATOR_HATCH_3 = 33113;
+	public static final int ELEVATOR_BALL_1 = 9383;
+	public static final int ELEVATOR_BALL_2 = 22638;
+	public static final int ELEVATOR_BALL_3 = 34382;
+	public static final int ELEVATOR_CARGO_BALL = 16188;
+	public static final int ELEVATOR_CARGO_INTAKE = 17387;
 
 	public static final int VICTOR_INTAKE_LEFT = 8;
 	public static final int VICTOR_INTAKE_RIGHT = 7;

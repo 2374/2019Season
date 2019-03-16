@@ -2,12 +2,15 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.AutoAlign;
 import frc.robot.commands.KeypadTeleop;
 
 public class OI {
 
 	private XboxController driver;
 	private XboxController operator;
+
+	private JoystickButton autoAlign;
 
 	private JoystickButton button1;
 	private JoystickButton button2;
@@ -19,11 +22,12 @@ public class OI {
 	private JoystickButton button8;
 	private JoystickButton button9;
 	private JoystickButton button10;
-	private JoystickButton button11;
 	
 	public OI() {
 		driver = new XboxController(RobotMap.CONTROLLER_DRIVER);
 		operator = new XboxController(RobotMap.CONTROLLER_OPERATOR);
+
+		this.autoAlign = new JoystickButton(driver, RobotMap.CONTROLLER_BUTTON_Y);
 
 		this.button1 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_A);
 		this.button2 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_B);
@@ -35,19 +39,19 @@ public class OI {
 		this.button8 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_START);
 		this.button9 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M1);
 		this.button10 = new JoystickButton(operator, RobotMap.CONTROLLER_BUTTON_M2);
-		this.button11 = new JoystickButton(operator, 11);
+
+		autoAlign.whileHeld(new AutoAlign());
 
 		button1.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1));
 		button2.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_2));
 		button3.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_3));
 		button4.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_1));
 		button5.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_2));
-		button6.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_BALL_3));
+		button6.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_DEPLOY));
 		button7.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_CARGO_BALL));
-		button8.whenPressed(new KeypadTeleop(RobotMap.CONTROLLER_BUTTON_START));
+		button8.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_CARGO_INTAKE));
 		button9.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_ZERO_LIMIT));
 		button10.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_PICKUP));
-		button11.whenPressed(new KeypadTeleop(RobotMap.ELEVATOR_HATCH_1_DEPLOY));
 
 	}
 	
